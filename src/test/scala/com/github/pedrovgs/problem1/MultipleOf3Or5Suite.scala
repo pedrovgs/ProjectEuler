@@ -27,4 +27,8 @@ class MultipleOf3Or5Suite extends FunSuite {
     assert(78 === MultipleOf3Or5.sumMultiplesOf3Or5Below(20))
   }
 
+  test("Multiple of 3 or 5 below 1000 have to sum 233168") {
+    assert(233168 === MultipleOf3Or5.sumMultiplesOf3Or5Below(1000))
+  }
+
 }
