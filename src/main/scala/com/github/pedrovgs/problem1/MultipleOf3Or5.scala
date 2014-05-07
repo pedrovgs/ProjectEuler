@@ -17,13 +17,6 @@ object MultipleOf3Or5 {
     println("Time spent to calculate with 1000 elements: " + (System.currentTimeMillis() - start) + " ms")
   }
 
-  def sumMultiplesOf3Or5Below(bound: Int): Int = {
-    val multiples = (1 to bound - 1).filter(elem => elem % 3 == 0 || elem % 5 == 0)
+  def sumMultiplesOf3Or5Below(bound: Int) = (1 to bound - 1).filter(elem => elem % 3 == 0 || elem % 5 == 0).sum
 
-    def sumElements(elements: List[Int]): Int = {
-      if (elements.isEmpty) 0
-      else elements.head + sumElements(elements.tail)
-    }
-    sumElements(multiples.toList)
-  }
 }
