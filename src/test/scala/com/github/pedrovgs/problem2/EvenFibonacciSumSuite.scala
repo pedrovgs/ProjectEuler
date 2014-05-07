@@ -12,16 +12,16 @@ import org.scalatest.junit.JUnitRunner
 class EvenFibonacciSumSuite extends FunSuite {
 
 
-  test("Fibonacci even numbers sums with bound to 4 is 2") {
+  test("Fibonacci even numbers sums with bound at 4 is 2") {
     assert(2 === EvenFibonacciSum.sumFibonacciEvenNumbers(4))
   }
 
-  test("Fibonacci even numbers sums with bound to 6 is 10") {
-    assert(10 === EvenFibonacciSum.sumFibonacciEvenNumbers(6))
+  test("Fibonacci even numbers sums with bound at 6 is 10") {
+    assert(2 === EvenFibonacciSum.sumFibonacciEvenNumbers(6))
   }
 
-  test("Fibonacci even numbers sums with bound to 9 is 44") {
-    assert(9 === EvenFibonacciSum.sumFibonacciEvenNumbers(9))
+  test("Fibonacci even numbers sums with bound at 9 is 44") {
+    assert(10 === EvenFibonacciSum.sumFibonacciEvenNumbers(9))
   }
 
 }
