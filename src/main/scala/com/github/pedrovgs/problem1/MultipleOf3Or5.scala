@@ -20,8 +20,29 @@ object MultipleOf3Or5 {
     Time.measure(println("If you sum multiples of 3 or 5 below 1000 you get: " + sumMultiplesOf3Or5BelowTailRecursive(1000)))
   }
 
+  /**
+   * Calculate the sum of each multiple of 3 or 5 below a limit.
+   *
+   * This version of the algorithm is the slowest in this Scala Object because all the syntactic sugar used to get
+   * a one line solution is going to affect the performance. "to", "filter" and "sum" functions are going to go over
+   * a set of N elements.
+   *
+   * @param bound used to calculate the multiples.
+   * @return sum of each multiple of 3 or 5 below bound parameter.
+   */
   def sumMultiplesOf3Or5Below(bound: Int) = (1 to bound - 1).filter(elem => elem % 3 == 0 || elem % 5 == 0).sum
 
+  /**
+   * Calculate the sum of each multiple of 3 or 5 below a limit.
+   *
+   * This version of the algorithm is much more faster than the first one because this algorithm is going over the set of
+   * N elements just one time to calculate the sum of each multiples.
+   *
+   * This implementation is tail recursive.
+   *
+   * @param bound used to calculate the multiples.
+   * @return sum of each multiple of 3 or 5 below bound parameter.
+   */
   def sumMultiplesOf3Or5BelowTailRecursive(bound: Int) = {
 
     @tailrec

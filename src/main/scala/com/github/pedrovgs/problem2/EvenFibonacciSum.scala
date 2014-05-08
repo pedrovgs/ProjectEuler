@@ -21,6 +21,15 @@ object EvenFibonacciSum {
     Time.measure(println("Sum of even numbers in Fibonacci sequence with values less than 4000000 is equals to: " + sumFibonacciEvenNumbersRecursiveLinearPerformance(4000000)))
   }
 
+  /**
+   * Calculate the sum of Fibonacci even numbers.
+   *
+   * This implementation is based on a tail recursive function to calculate Fibonacci numbers and other iterative
+   * version to filter even elements and sum it.
+   *
+   * @param bound used to calculate Fibonacci numbers.
+   * @return the sum of Fibonacci even numbers below the bound param.
+   */
   def sumFibonacciEvenNumbersRecursive(bound: Int): Int = {
 
     @tailrec
@@ -33,6 +42,17 @@ object EvenFibonacciSum {
     getFibonacciElements(0, ListBuffer()).filter(_ % 2 == 0).sum
   }
 
+  /**
+   * Calculate the sum of Fibonacci even numbers.
+   *
+   * This implementation is based on a tail recursive function. At the same time the algorithm calculate the next
+   * Fibonacci element is going to evaluate if is even and sum it.
+   *
+   * This algorithm implementation is tail recursive.
+   *
+   * @param bound used to calculate Fibonacci numbers.
+   * @return the sum of Fibonacci even numbers below the bound param.
+   */
   def sumFibonacciEvenNumbersRecursiveLinearPerformance(bound: Int): Int = {
 
     @tailrec
