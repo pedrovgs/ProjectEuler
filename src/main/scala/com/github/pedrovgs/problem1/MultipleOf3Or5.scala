@@ -1,6 +1,7 @@
 package com.github.pedrovgs.problem1
 
 import scala.annotation.tailrec
+import com.github.pedrovgs.time.Time
 
 /**
  *
@@ -14,13 +15,9 @@ import scala.annotation.tailrec
 object MultipleOf3Or5 {
 
   def main(args: Array[String]) {
-    val startIterative = System.nanoTime();
-    println("If you sum multiples of 3 or 5 below 1000 you get: " + sumMultiplesOf3Or5Below(1000))
-    println("Time spent to calculate with 1000 elements: " + (System.nanoTime() - startIterative) + " ns")
+    Time.measure(println("If you sum multiples of 3 or 5 below 1000 you get: " + sumMultiplesOf3Or5Below(1000)))
 
-    val startRecursive = System.nanoTime();
-    println("If you sum multiples of 3 or 5 below 1000 you get: " + sumMultiplesOf3Or5BelowTailRecursive(1000))
-    println("Time spent to calculate with 1000 elements: " + (System.nanoTime() - startRecursive) + " ns")
+    Time.measure(println("If you sum multiples of 3 or 5 below 1000 you get: " + sumMultiplesOf3Or5BelowTailRecursive(1000)))
   }
 
   def sumMultiplesOf3Or5Below(bound: Int) = (1 to bound - 1).filter(elem => elem % 3 == 0 || elem % 5 == 0).sum
