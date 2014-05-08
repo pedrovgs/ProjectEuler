@@ -17,6 +17,8 @@ object EvenFibonacciSum {
 
   def main(args: Array[String]) = {
     Time.measure(println("Sum of even numbers in Fibonacci sequence with values less than 4000000 is equals to: " + sumFibonacciEvenNumbersRecursive(4000000)))
+
+    Time.measure(println("Sum of even numbers in Fibonacci sequence with values less than 4000000 is equals to: " + sumFibonacciEvenNumbersRecursiveLinearPerformance(4000000)))
   }
 
   def sumFibonacciEvenNumbersRecursive(bound: Int): Int = {
@@ -29,6 +31,22 @@ object EvenFibonacciSum {
     }
 
     getFibonacciElements(0, ListBuffer()).filter(_ % 2 == 0).sum
+  }
+
+  def sumFibonacciEvenNumbersRecursiveLinearPerformance(bound: Int): Int = {
+
+    @tailrec
+    def getFibonacciElements(acc: Int, i: Int, elems: ListBuffer[Int]): Int = {
+      if (i == 0 || i == 1) getFibonacciElements(acc, i + 1, elems.+=(i))
+      else if (elems.last >= bound) acc
+      else {
+        val nextFibonacciElement: Int = elems(i - 1) + elems(i - 2)
+        if (nextFibonacciElement % 2 == 0) getFibonacciElements(acc + nextFibonacciElement, i + 1, elems.+=(nextFibonacciElement))
+        else getFibonacciElements(acc, i + 1, elems.+=(nextFibonacciElement))
+      }
+    }
+
+    getFibonacciElements(0, 0, ListBuffer())
   }
 
 }
