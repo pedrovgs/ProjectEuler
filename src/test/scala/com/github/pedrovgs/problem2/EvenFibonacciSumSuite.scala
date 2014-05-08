@@ -17,11 +17,11 @@ class EvenFibonacciSumSuite extends FunSuite {
   }
 
   test("Fibonacci even numbers sums with bound at 6 is 10") {
-    assert(2 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursive(6))
+    assert(10 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursive(6))
   }
 
-  test("Fibonacci even numbers sums with bound at 9 is 44") {
-    assert(10 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursive(9))
+  test("Fibonacci even numbers sums with bound at 25 is 44") {
+    assert(44 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursive(35))
   }
 
 }
