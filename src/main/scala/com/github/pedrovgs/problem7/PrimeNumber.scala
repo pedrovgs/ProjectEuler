@@ -2,6 +2,7 @@ package com.github.pedrovgs.problem7
 
 import com.github.pedrovgs.time.Time
 import scala.annotation.tailrec
+import com.github.pedrovgs.prime.PrimeUtil
 
 /**
  *
@@ -27,14 +28,10 @@ object PrimeNumber {
    */
   def getPrimeNumberAt(position: Int): Int = {
 
-    def isPrime(number: Int) = {
-      (2 to number).view.find(number % _ == 0).get == number
-    }
-
     @tailrec
     def getPrimeNumberAtInner(counter: Int, possiblePrime: Int, position: Int): Int = {
-      if (isPrime(possiblePrime) && counter == position - 1) possiblePrime
-      else if (isPrime(possiblePrime)) getPrimeNumberAtInner(counter + 1, possiblePrime + 1, position)
+      if (PrimeUtil.isPrime(possiblePrime) && counter == position - 1) possiblePrime
+      else if (PrimeUtil.isPrime(possiblePrime)) getPrimeNumberAtInner(counter + 1, possiblePrime + 1, position)
       else getPrimeNumberAtInner(counter, possiblePrime + 1, position)
     }
 
