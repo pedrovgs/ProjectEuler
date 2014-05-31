@@ -14,6 +14,8 @@ object LargestPalindromeProduct {
 
   def main(args: Array[String]) = {
     Time.measure(println("Time spent to get the largest palindrome product: " + getLargestPalindromeProduct()))
+    Time.measure(println("Time spent to get the largest palindrome product using functional combinators: " +
+      getLargestPalindromeProductFunctionalCombinators()))
   }
 
   /**
@@ -29,6 +31,21 @@ object LargestPalindromeProduct {
         if (isPalindrome(i * j)) palindromes.+=(i * j)
       }
     palindromes.max
+  }
+
+
+  /**
+   * Iterative version based on functional combinators. Flat map functional combinator will generate a collection with
+   * all the possible combinations that will be filtered using isPalindrome function. View method will let the algorithm
+   * evaluate each element only when be used.
+   *
+   * @return
+   */
+  def getLargestPalindromeProductFunctionalCombinators(): Int = {
+    (100 to 999).view
+      .flatMap(i => (i to 999).map(i *))
+      .filter(n => isPalindrome(n))
+      .max
   }
 
 
