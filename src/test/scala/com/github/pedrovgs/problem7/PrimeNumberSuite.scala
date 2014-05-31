@@ -12,4 +12,8 @@ class PrimeNumberSuite extends FunSuite {
     assert(13 === PrimeNumber.getPrimeNumberAt(6))
   }
 
+  test("The 10001st prime number is 104743") {
+    assert(104743 === PrimeNumber.getPrimeNumberAt(10001))
+  }
+
 }
