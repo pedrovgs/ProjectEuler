@@ -1,6 +1,7 @@
 package com.github.pedrovgs.problem10
 
 import com.github.pedrovgs.time.Time
+import com.github.pedrovgs.prime.PrimeUtil
 
 /**
  *
@@ -29,11 +30,7 @@ object SummationOfPrimes {
    */
   def getSummationOfPrimesBelow(bound: Long): Long = {
 
-    def isPrime(value: Long): Boolean = {
-      !(2L to math.sqrt(value).toInt).exists(value % _ == 0)
-    }
-
-    2 + (3L to bound by 2).filter(isPrime).sum
+    2 + (3L to bound by 2).filter(PrimeUtil.isPrime).sum
   }
 
 }
