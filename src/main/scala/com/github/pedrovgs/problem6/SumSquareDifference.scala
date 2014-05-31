@@ -27,8 +27,11 @@ object SumSquareDifference {
    * @return
    */
   def getSumSquareDifference(range: List[Int]): Int = {
-    val sum: Int = range.sum
-    (sum * sum) - range.map(n => n * n).sum
+
+    def square(a: Int) = a * a
+
+    val sum = range.sum
+    square(sum) - range.map(n => square(n)).sum
   }
 
 }
