@@ -14,10 +14,10 @@ object SmallestMultiple {
 
   def main(args: Array[String]) = {
 
-    Time.measure(println("Smallest number multiple of 1 to 20 with parallel implementation is: " +
+    Time.measure(println("Smallest number multiple of 1 to 20 with tail recursive implementation is: " +
       getSmallestMultipleOfFirst20()))
 
-    Time.measure(println("Smallest number multiple of 1 to 20 with parallel implementation is: " +
+    Time.measure(println("Smallest number multiple of 1 to 20 with functional combinators implementation is: " +
       getSmallestMultipleOfFirst20UsingFunctionalCombinators()))
   }
 
