@@ -33,7 +33,7 @@ object LargestPrimeFactor {
 
     @tailrec
     def getLargestPrimeFactorInner(value: BigInt, candidate: BigInt): BigInt = {
-      val prime: Boolean = PrimeUtil.isPrime(candidate)
+      val prime: Boolean = PrimeUtil.isPrime(candidate.toLong)
       if (value % candidate == 0 && prime && value == candidate) candidate
       else if (value % candidate == 0 && prime) getLargestPrimeFactorInner(value / candidate, candidate + 1)
       else getLargestPrimeFactorInner(value, candidate + 1)

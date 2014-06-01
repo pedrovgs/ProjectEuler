@@ -12,4 +12,8 @@ class SummationOfPrimesSuite extends FunSuite {
     assert(17 === SummationOfPrimes.getSummationOfPrimesBelow(10))
   }
 
+  test("The fum of all the primes below two million is 142913828922") {
+    assert(142913828922L === SummationOfPrimes.getSummationOfPrimesBelow(2000000L))
+  }
+
 }
