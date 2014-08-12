@@ -2,7 +2,7 @@ package com.github.pedrovgs.prime
 
 /**
  *
- * Utility class created to contains some interesting methods to work with prime numbers
+ * Utility class created to contains some interesting methods to work with prime numbers.
  *
  * @author Pedro Vicente Gómez Sánchez
  */

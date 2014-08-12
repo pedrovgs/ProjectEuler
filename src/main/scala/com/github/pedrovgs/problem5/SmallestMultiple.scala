@@ -1,6 +1,7 @@
 package com.github.pedrovgs.problem5
 
 import com.github.pedrovgs.time.Time
+
 import scala.annotation.tailrec
 
 /**
@@ -16,7 +17,6 @@ object SmallestMultiple {
 
     Time.measure(println("Smallest number multiple of 1 to 20 with tail recursive implementation is: " +
       getSmallestMultipleOfFirst20()))
-
     Time.measure(println("Smallest number multiple of 1 to 20 with functional combinators implementation is: " +
       getSmallestMultipleOfFirst20UsingFunctionalCombinators()))
   }

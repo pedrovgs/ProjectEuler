@@ -1,7 +1,8 @@
 package com.github.pedrovgs.problem1
 
-import scala.annotation.tailrec
 import com.github.pedrovgs.time.Time
+
+import scala.annotation.tailrec
 
 /**
  *
@@ -16,7 +17,6 @@ object MultipleOf3Or5 {
 
   def main(args: Array[String]) {
     Time.measure(println("If you sum multiples of 3 or 5 below 1000 you get: " + sumMultiplesOf3Or5Below(1000)))
-
     Time.measure(println("If you sum multiples of 3 or 5 below 1000 you get: " + sumMultiplesOf3Or5BelowTailRecursive(1000)))
   }
 

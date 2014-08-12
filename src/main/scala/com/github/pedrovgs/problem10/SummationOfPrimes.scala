@@ -1,7 +1,7 @@
 package com.github.pedrovgs.problem10
 
-import com.github.pedrovgs.time.Time
 import com.github.pedrovgs.prime.PrimeUtil
+import com.github.pedrovgs.time.Time
 
 /**
  *
@@ -29,7 +29,6 @@ object SummationOfPrimes {
    * @return
    */
   def getSummationOfPrimesBelow(bound: Long): Long = {
-
     2 + (3L to bound by 2).filter(PrimeUtil.isPrime).sum
   }
 

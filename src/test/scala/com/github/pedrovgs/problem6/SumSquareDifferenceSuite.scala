@@ -3,6 +3,7 @@ package com.github.pedrovgs.problem6
 import org.scalatest.FunSuite
 
 /**
+ *
  * @author Pedro Vicente Gómez Sánchez
  */
 class SumSquareDifferenceSuite extends FunSuite {
