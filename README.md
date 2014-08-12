@@ -1,9 +1,9 @@
 Project Euler
 =============
 
-This package contains my solution for some Project Euler problems. I've created this repository to learn Scala and Functional Programming. I'll try to add more solutions if I have time :).
+This package contains my solution for some Project Euler problems. I've created this repository to learn Scala and Functional Programming. I'll try to add more solutions if I have time :)
 
-Each solved problem has a program written in Scala. Every problem is tested and some problems contains more than one solution with different implementations.
+Each solved problem has a program written in Scala. Every solution is tested and some problems contains more than one solution with different implementations.
  
 You can check the solution performance executing the main method you can find in the exercise resolution or executing tests.
 
