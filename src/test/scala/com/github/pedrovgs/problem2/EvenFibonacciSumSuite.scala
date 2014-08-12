@@ -1,7 +1,7 @@
 package com.github.pedrovgs.problem2
 
-import org.scalatest.FunSuite
 import org.junit.runner.RunWith
+import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 
 /**
@@ -25,6 +25,10 @@ class EvenFibonacciSumSuite extends FunSuite {
     assert(44 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursive(35))
   }
 
+  test("Fibonacci even numbers sums with bound at 4000000 is 4613732") {
+    assert(4613732 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursive(4000000))
+  }
+
   // Tail recursive version
 
   test("Fibonacci even numbers sums with bound at 4 is 2 linear performance version") {
@@ -37,6 +41,10 @@ class EvenFibonacciSumSuite extends FunSuite {
 
   test("Fibonacci even numbers sums with bound at 25 is 44 linear performance version") {
     assert(44 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursiveLinearPerformance(35))
+  }
+
+  test("Fibonacci even numbers sums with bound at 4000000 is 4613732 linear performance version") {
+    assert(4613732 === EvenFibonacciSum.sumFibonacciEvenNumbersRecursiveLinearPerformance(4000000))
   }
 
 }
