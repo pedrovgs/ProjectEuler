@@ -1,7 +1,7 @@
 package com.github.pedrovgs.problem3
 
-import org.scalatest.FunSuite
 import org.junit.runner.RunWith
+import org.scalatest.FunSuite
 import org.scalatest.junit.JUnitRunner
 
 /**
@@ -33,6 +33,10 @@ class LargestPrimeFactorSuite extends FunSuite {
 
   test("Largest prime factor of 13195 is 29") {
     assert(29 === LargestPrimeFactor.getLargestPrimeFactor(13195))
+  }
+
+  test("Largest prime factor of 600851475143 is 6857") {
+    assert(6857 === LargestPrimeFactor.getLargestPrimeFactor(BigInt("600851475143")))
   }
 
 }

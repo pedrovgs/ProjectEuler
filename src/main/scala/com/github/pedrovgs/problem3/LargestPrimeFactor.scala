@@ -1,8 +1,9 @@
 package com.github.pedrovgs.problem3
 
-import com.github.pedrovgs.time.Time
-import scala.annotation.tailrec
 import com.github.pedrovgs.prime.PrimeUtil
+import com.github.pedrovgs.time.Time
+
+import scala.annotation.tailrec
 
 /**
  *
@@ -35,7 +36,7 @@ object LargestPrimeFactor {
     def getLargestPrimeFactorInner(value: BigInt, candidate: BigInt): BigInt = {
       val prime: Boolean = PrimeUtil.isPrime(candidate.toLong)
       if (value % candidate == 0 && prime && value == candidate) candidate
-      else if (value % candidate == 0 && prime) getLargestPrimeFactorInner(value / candidate, candidate + 1)
+      else if (value % candidate == 0 && prime) getLargestPrimeFactorInner(value / candidate, candidate)
       else getLargestPrimeFactorInner(value, candidate + 1)
     }
 
