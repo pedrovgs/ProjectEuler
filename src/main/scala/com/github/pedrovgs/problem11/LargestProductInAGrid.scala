@@ -54,6 +54,7 @@ import scala.collection.mutable.ListBuffer
 object LargestProductInAGrid {
 
   private val DIGIT_SIZE = 2
+  private val MATRIX_SIZE = 20
 
   def main(args: Array[String]) {
     Time.measure(println("Largest product in the grid is: " + getLargestProduct()))
@@ -72,10 +73,10 @@ object LargestProductInAGrid {
    */
   def getLargestProduct(): Int = {
 
-    val listOfNumbers = numbers.grouped(2).map(_.toInt).toList
-    val matrix = listOfNumbers.grouped(20).toList
+    val listOfNumbers = numbers.grouped(DIGIT_SIZE).map(_.toInt).toList
+    val matrix = listOfNumbers.grouped(MATRIX_SIZE).toList
     val products = new ListBuffer[Int]
-    for (x <- 0 until 20; y <- 0 until 20) {
+    for (x <- 0 until MATRIX_SIZE; y <- 0 until MATRIX_SIZE) {
       products += getHorizontalProduct(matrix, x, y);
       products += getVerticalProduct(matrix, x, y);
       products += getDiagonalProductUp(matrix, x, y);
@@ -87,12 +88,15 @@ object LargestProductInAGrid {
       else 0
     }
 
-    def getHorizontalProduct(matrix: List[List[Int]], x: Int, y: Int) = {
+    def getProduct(matrix: List[List[Int]], x: Int, y: Int): Int = {
       val a = getValueAt(matrix, x, y)
       val b = getValueAt(matrix, x + 1, y)
       val c = getValueAt(matrix, x + 2, y)
       val d = getValueAt(matrix, x + 3, y)
       a * b * c * d
+    }
+    def getHorizontalProduct(matrix: List[List[Int]], x: Int, y: Int) = {
+      getProduct(matrix, x, y)
     }
 
     def getVerticalProduct(matrix: List[List[Int]], x: Int, y: Int) = {
