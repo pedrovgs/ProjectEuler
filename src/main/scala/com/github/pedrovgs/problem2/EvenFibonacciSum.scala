@@ -64,6 +64,9 @@ object EvenFibonacciSum {
    * This implementation is based on a tail recursive function. At the same time the algorithm calculate the next
    * Fibonacci element is going to evaluate if is even and sum it.
    *
+   * This implementation is faster than the one above because the we are not going to apply a filter after get all
+   * the fibonacci elements.
+   *
    * This algorithm implementation is tail recursive.
    *
    * @param bound used to calculate Fibonacci numbers.

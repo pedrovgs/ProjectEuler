@@ -17,6 +17,7 @@
 package com.github.pedrovgs.problem4
 
 import com.github.pedrovgs.time.Time
+
 import scala.collection.mutable.ListBuffer
 
 /**
@@ -51,9 +52,12 @@ object LargestPalindromeProduct {
 
 
   /**
-   * Iterative version based on functional combinators. Flat map functional combinator will generate a collection with
+   * Version based on functional combinators. Flat map functional combinator will generate a collection with
    * all the possible combinations that will be filtered using isPalindrome function. View method will let the algorithm
    * evaluate each element only when be used.
+   *
+   * This implementation is faster because the 100-999 range is generated using a view and this evaluates and generate
+   * the range at the same time.
    *
    * @return
    */

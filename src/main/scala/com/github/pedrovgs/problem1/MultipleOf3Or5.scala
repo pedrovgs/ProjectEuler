@@ -51,7 +51,7 @@ object MultipleOf3Or5 {
   /**
    * Calculate the sum of each multiple of 3 or 5 below a limit.
    *
-   * This version of the algorithm is much more faster than the first one because this algorithm is going over the set of
+   * This version of the algorithm is much faster than the first one because this algorithm is going over the set of
    * N elements just one time to calculate the sum of each multiples.
    *
    * This implementation is tail recursive.

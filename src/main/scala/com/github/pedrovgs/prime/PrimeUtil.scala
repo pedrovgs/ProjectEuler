@@ -26,7 +26,8 @@ object PrimeUtil {
 
   /**
    * This algorithm to check if a number is prime or not is not the faster version but it's faster that check if every
-   * number below the number can be multiple of the number.
+   * number below the number can be multiple of the number. This algorithm generates a range between e and the sqrt of
+   * the value to check if not exists a value to divide the value and get a module 0.
    *
    * We can improve this function in the future using other algorithms like some described here:
    *

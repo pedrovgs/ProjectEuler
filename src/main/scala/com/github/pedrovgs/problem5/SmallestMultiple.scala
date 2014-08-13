@@ -60,6 +60,8 @@ object SmallestMultiple {
    * This algorithm is faster because view lets you generate the range and evaluate the result
    * at the same time.
    *
+   * This implementation is based because we are using a view to calculate the range between 20 and the Int.MaxValue.
+   *
    * @return
    */
   def getSmallestMultipleOfFirst20UsingFunctionalCombinators(): Int = {
