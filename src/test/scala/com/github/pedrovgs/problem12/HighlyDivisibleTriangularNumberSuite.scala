@@ -28,4 +28,8 @@ class HighlyDivisibleTriangularNumberSuite extends FunSuite {
     assert(28 === HighlyDivisibleTriangularNumber.getTriangularNumberWithDivisors(5))
   }
 
+  test("First triangular number with over 500 divisors is 76576500") {
+    assert(76576500 === HighlyDivisibleTriangularNumber.getTriangularNumberWithDivisors(500))
+  }
+
 }
