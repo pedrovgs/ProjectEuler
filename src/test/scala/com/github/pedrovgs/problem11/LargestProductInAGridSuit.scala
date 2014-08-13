@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-
-package com.github.pedrovgs
+package com.github.pedrovgs.problem11
 
 import org.scalatest.FunSuite
 
@@ -26,8 +25,8 @@ import org.scalatest.FunSuite
 class LargestProductInAGridSuit extends FunSuite {
 
 
-  test("Largest product of 4 digits adjacent multiplied diagonally in the exercise attached number is ???") {
-
+  test("Largest product of 4 digits multiplied using any valid position in the exercise attached is 70600674") {
+    assert(70600674 === LargestProductInAGrid.getLargestProduct())
   }
 
 

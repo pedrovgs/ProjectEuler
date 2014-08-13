@@ -18,6 +18,8 @@ package com.github.pedrovgs.problem11
 
 import com.github.pedrovgs.time.Time
 
+import scala.collection.mutable.ListBuffer
+
 /**
  *
  * In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
@@ -51,23 +53,72 @@ import com.github.pedrovgs.time.Time
  */
 object LargestProductInAGrid {
 
+  private val DIGIT_SIZE = 2
+
   def main(args: Array[String]) {
     Time.measure(println("Largest product in the grid is: " + getLargestProduct()))
   }
 
   private val numbers = "08022297381500400075040507785212507791084949994017811857608717409843694804566200814931735579142993714067538830034913366552709523046011426924685601325671370236912231167151676389419236542240402866331380244732609903450244753353783684203517125032988128642367102638406759547066183864706726206802621220956394396308409166499421245558056673992697177878968314883489637221362309750076442045351400613397343133957817532822753167159403800462161409535692163905429635314755588824001754243629855786560048357189070544443744602158515417581980816805944769287392138652177704895540045208839735991607975732162626793327986688366887576220720346336746551232639353690442167338253911249472180846293240627636206936417230238834629969826759857404361620733529783190017431497148868116235705540170547183515469169233486143520189196748"
 
+
   /**
    *
    * This method uses the grouped method to split the number sequence in a list of numbers of two digits mapped to Int after the group method.
+   *
+   * Once it has a list of numbers is going to generate a List[Int] of List[Int] that is going to act as matrix.
    *
    * @return largest product in the grid using any valid direction (|, -, /, \)
    */
   def getLargestProduct(): Int = {
 
     val listOfNumbers = numbers.grouped(2).map(_.toInt).toList
-    println("List of numbers " + listOfNumbers)
+    val matrix = listOfNumbers.grouped(20).toList
+    val products = new ListBuffer[Int]
+    for (x <- 0 until 20; y <- 0 until 20) {
+      products += getHorizontalProduct(matrix, x, y);
+      products += getVerticalProduct(matrix, x, y);
+      products += getDiagonalProductUp(matrix, x, y);
+      products += getDiagonalProductBottom(matrix, x, y);
+    }
 
-    -1
+    def getValueAt(matrix: List[List[Int]], x: Int, y: Int): Int = {
+      if (matrix.isDefinedAt(x) && matrix(x).isDefinedAt(y)) matrix(x)(y)
+      else 0
+    }
+
+    def getHorizontalProduct(matrix: List[List[Int]], x: Int, y: Int) = {
+      val a = getValueAt(matrix, x, y)
+      val b = getValueAt(matrix, x + 1, y)
+      val c = getValueAt(matrix, x + 2, y)
+      val d = getValueAt(matrix, x + 3, y)
+      a * b * c * d
+    }
+
+    def getVerticalProduct(matrix: List[List[Int]], x: Int, y: Int) = {
+      val a = getValueAt(matrix, x, y)
+      val b = getValueAt(matrix, x, y + 1)
+      val c = getValueAt(matrix, x, y + 2)
+      val d = getValueAt(matrix, x, y + 3)
+      a * b * c * d
+    }
+
+    def getDiagonalProductUp(matrix: List[List[Int]], x: Int, y: Int) = {
+      val a = getValueAt(matrix, x, y)
+      val b = getValueAt(matrix, x - 1, y - 1)
+      val c = getValueAt(matrix, x - 2, y - 2)
+      val d = getValueAt(matrix, x - 3, y - 3)
+      a * b * c * d
+    }
+
+    def getDiagonalProductBottom(matrix: List[List[Int]], x: Int, y: Int) = {
+      val a = getValueAt(matrix, x, y)
+      val b = getValueAt(matrix, x + 1, y - 1)
+      val c = getValueAt(matrix, x + 2, y - 2)
+      val d = getValueAt(matrix, x + 3, y - 3)
+      a * b * c * d
+    }
+
+    products.max
   }
 }
