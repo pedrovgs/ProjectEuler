@@ -42,22 +42,34 @@ import com.github.pedrovgs.time.Time
 object HighlyDivisibleTriangularNumber {
 
   def main(args: Array[String]) {
-    Time.measure(println("Largest product in the grid is: " + getTriangularNumberWithDivisors(100)))
+    Time.measure(println("Largest product in the grid is: " + getTriangularNumberWithDivisors(500)))
   }
 
-
+  /**
+   * Calculate the triangle values from 1 using the formula triangleNumber = n * (n+1) / 2 inside an stream.
+   * Once you have every triangle number from none we are going to find the trieangle number with more than
+   * n divisors using getDivisors method.
+   *
+   * Get divisors method generates a range between 1 and Int.MaxValue to take just that numbers less than the
+   * square of the number is less than the number to get divisors. Once you have a list of numbers we are going
+   * to apply a fold left from 0 to search the divisors.
+   *
+   * Using fold left we are going over the selected values to count dividers.
+   *
+   * @param divisors
+   * @return
+   */
   def getTriangularNumberWithDivisors(divisors: Int): Int = {
 
-    def isDivisibleBy(value: Int, numberOfDivisor: Int): Boolean = {
-      (1 until value).view.count(value % _ == 0) == numberOfDivisor
+    def getDivisorsCount(number: Int) = {
+      (1 to Int.MaxValue)
+        .takeWhile(n => n * n <= number)
+        .foldLeft(0)((acc, n) => if (number % n == 0) acc + 2 else acc)
     }
 
-    def getTriangularNumber(element: Int): Int = {
-      (1 to element).view.sum
-    }
+    def triangles = Stream.from(1).map(n => n * (n + 1) / 2)
+    triangles.find(getDivisorsCount(_) > divisors).get
 
-    val triangularNumbers = (1 to Int.MaxValue).view.map(getTriangularNumber)
-    triangularNumbers.find(isDivisibleBy(_, divisors)).get
   }
 
 }
