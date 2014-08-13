@@ -67,7 +67,12 @@ object LargestProductInAGrid {
    *
    * This method uses the grouped method to split the number sequence in a list of numbers of two digits mapped to Int after the group method.
    *
-   * Once it has a list of numbers is going to generate a List[Int] of List[Int] that is going to act as matrix.
+   * Once it has a list of numbers is going to generate a List[Int] of List[Int] that is going to act as matrix the algorithm is going to
+   * iterate over every element in the matrix to calculate the 4 different products and return the max as result.
+   *
+   * One of the keys of this problem is to implement a method that transforms every check of IndexOutOfBoundException into a 0
+   * value while the algorithm is trying to calculate the product. With this simple 0 you avoid tons of checks about the boundary
+   * positions.
    *
    * @return largest product in the grid using any valid direction (|, -, /, \)
    */
