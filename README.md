@@ -1,4 +1,4 @@
-Project Euler [![Build Status](https://travis-ci.org/pedrovgs/ProjectEuler.svg?branch=master)](https://travis-ci.org/pedrovgs/ProjectEuler)
+Project Euler
 =============
 
 This repository contains my solution for some Project Euler problems. I've created this repository to learn Scala and Functional Programming. I'll try to add more solutions if I have time :)
